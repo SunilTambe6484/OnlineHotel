@@ -1,0 +1,49 @@
+﻿@using OnlineHotel.Models
+@using OnlineHotel.Utility
+@model PagedResult<OnlineHotel.ViewModels.RoomViewModel>
+
+   <main> 
+   <div class="container-fluid bg-trasparent my-4 p-3"
+        style="position: relative;"> 
+              <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+               @foreach (var item in Model.Data)
+                 {
+                <div class="col"> 
+                   <div class="card h-100 shadow-sm">
+                      <img src="~/Images/@item.RoomPicture" class="card-img-top" alt="...">
+ <div class="card-body">
+     <div class="clearfix mb-3">
+         <span class="float-start badge rounded-pill bg-primary">
+             @item.RoomType.Name</span>
+             <span class="float-end price-hp">
+                 @item.RoomNumber Room Status :@item.Status </span>
+             </div>
+             <h5 class="card-title">Room Facilities:
+                 --Ac Room, Smoke Free Room, Dust Free, Attach Bathroom, Attach Toilet
+
+             </h5>
+    <div class="text-center my-4">                      
+      @if (item.Status==(RoomAvail.Booked))
+             {
+        <input type="submit" hidden="hidden" value="BookNow" class="btn btn-warning"/>
+              }
+        else
+
+        {
+         <input type="submit"  value="BookNow" class="btn btn-warning"/> 
+         }
+
+                         
+                         
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+
+            }            
+                     
+                     
+                     
+                 </div>
+                 </div>
+                 </main>
